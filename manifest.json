@@ -1,0 +1,35 @@
+{
+    "manifest_version": 3,
+    "name": "Remove YouTube Shorts",
+    "version": "1.0.0",
+    "description": "A Chrome extension that removes YouTube's Shorts from the subscriptions tab.",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "action": {
+        "default_popup": "index.html",
+        "default_title": "Remove YouTube Shorts"
+    },
+    "permissions": [
+        "storage",
+        "activeTab"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.youtube.com/feed/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "css": [
+                "style.css"
+            ]
+        }
+    ]
+}
