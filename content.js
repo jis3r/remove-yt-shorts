@@ -1,16 +1,19 @@
-// Define a function that removes "SHORTS" spans from the page
+const PARENTS = 12;
 function removeShortsSpans() {
-    console.log("ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄ")
-    const spans = document.querySelectorAll('span#text');
-    spans.forEach((span) => {
-        if (span.textContent.trim() === 'SHORTS') {
-            console.log('SHORTS');
-            span.remove();
+    document.querySelectorAll('span#text').forEach((span) => {
+      if (span.textContent.trim() === 'SHORTS') {
+        console.log('SHORTS');
+        let el = span.parentElement;
+        for (let i = 0; i < PARENTS && el; i++) {
+          el = el.parentElement;
+        }
+        if (el) {
+          el.remove();
+        }
       }
     });
   }
   
-  // Observe changes to the page's DOM using a mutation observer
   const observer = new MutationObserver(() => {
     removeShortsSpans();
   });
