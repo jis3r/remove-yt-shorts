@@ -9,7 +9,6 @@
         "128": "icons/icon128.png"
     },
     "action": {
-        "default_popup": "index.html",
         "default_title": "Remove YouTube Shorts"
     },
     "permissions": [
@@ -26,9 +25,6 @@
             ],
             "js": [
                 "content.js"
-            ],
-            "css": [
-                "style.css"
             ]
         }
     ]
